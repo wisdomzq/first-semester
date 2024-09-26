@@ -47,6 +47,12 @@ int main()
     cin>>n;
     for(int i=0;i<=n;i++)
         cin>>a[i];
+    if(n==1)
+    {
+        cout<<0<<endl;
+        cout<<"(A1)"<<endl;
+        return 0;
+    }
     chain();
     cout<<m[1][n]<<endl;
     traceback(1,n);
