@@ -22,10 +22,7 @@ double dis(Point a,Point b)
 }
 
 
-/* 计算点集X在[l,r]区间内的两点最近距离
- * 点集Y的元素与X内相同
- * 点集temp待用
- * 注：X在[l,r]区间已经按照x坐标排序，Y在[l,r]区间已经按照y坐标排序 */
+
 double mindistance(int l,int r)
 {
     double d=10000000;
@@ -47,11 +44,11 @@ double mindistance(int l,int r)
     {
         if(fabs(px[mid].x-px[i].x)<=d)
         {
-            temp[++cnt]=px[i];
+            temp[++cnt]=px[i];//把x坐标在中界限[-d，d]附近的点一一收集到temp点集
         }
     }
     sort(temp+1,temp+cnt+1,cmp_y);//对Temp点按照y坐标排序
-    for(int i=1;i<=cnt;i++)
+    for(int i=1;i<=cnt;i++)//直接枚举，找出收集的点集里的最短距离
     {
         for(int j=i+1;j<=cnt;j++)
         {
